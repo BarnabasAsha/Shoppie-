@@ -1,0 +1,58 @@
+.movie {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #393e46;
+    margin-bottom: 1em;
+    width: 300px;
+    height: 130px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 0px rgba(238, 238, 238, 0.582);
+}
+
+.movie .poster {
+    max-width: 30%;
+    height: 130px;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.movie .description {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 1em;
+}
+
+.movie .description h3 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.movie .description button {
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #eee;
+    background: #00adb5;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.movie .description button:active {
+    background: #4d4d4d;
+}
+
+.movie .description button:disabled {
+    background: #323232;
+}
+
+@media only screen and (max-width: 480px) {
+    .movie {
+        width: 270px;
+    }
+}
+
