@@ -18,7 +18,7 @@ class Search extends Component {
     fetchData(e) {
         e.preventDefault()
         this.setState({query: this.searchRef.current.value})
-        fetch(`http://www.omdbapi.com/?apikey=32817f98&s=${this.searchRef.current.value}`)
+        fetch(`https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=32817f98&s=${this.searchRef.current.value}`)
         .then(res => res.json())
         .then(data => {
            if (data.Response === 'True'){
