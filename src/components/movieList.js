@@ -40,11 +40,12 @@ class List extends Component {
     }
 
     removeNominations(movieID) {
-        this.state.nominations.filter(movie => {
+        // eslint-disable-next-line array-callback-return
+        this.state.nominations.filter((movie) => {
             if (movie.imdbID === movieID) {
                 const nominations = this.state.nominations
                 nominations.splice(this.state.nominations.indexOf(movie), 1)
-                this.setState({ nominations: nominations })
+               this.setState({ nominations: nominations })
             }
         })
     }
