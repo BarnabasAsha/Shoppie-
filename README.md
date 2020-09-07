@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Shoppie
+A movie award nomination app built with React
+Users can nominate their favorites movies
+A maximum of 5 movies can be nominated
+Users nominations is saved to browsers storage
+
+Hosted Link: shoppie-awards.netlify.app
 
 ## Available Scripts
 
