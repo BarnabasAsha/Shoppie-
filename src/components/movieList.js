@@ -58,12 +58,14 @@ class List extends Component {
     }
 
     toggleButton() {
-        if(this.state.toggleList === false) {
-            this.toggleRef.current.style.display = 'block'
-            this.setState({toggleList: !this.state.toggleList})
-        } else {
-            this.toggleRef.current.style.display = 'none'
-            this.setState({toggleList: !this.state.toggleList})  
+        if(this.state.nominations.length > 0) {
+            if(this.state.toggleList === false) {
+                this.toggleRef.current.style.display = 'block'
+                this.setState({toggleList: !this.state.toggleList})
+            } else {
+                this.toggleRef.current.style.display = 'none'
+                this.setState({toggleList: !this.state.toggleList})  
+            }
         }
     }
 
