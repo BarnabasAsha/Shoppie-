@@ -95,16 +95,16 @@ class List extends Component {
                                 }
                             </div>
                         ) : (
-                            <div>
-                                Sorry this movie can't be found <br /> Try searching another movie
-                            </div>
+                            // <div className="error-message">
+                            //     Sorry this movie can't be found <br /> Try searching another movie
+                            // </div>
+                            null
                         )
                     }
 
                     {
                         this.state.nominations.length > 0 ? (
                             <div className="list">
-                                <button className="toggle" onClick={this.toggleButton}>Show Nominations</button>
                                 <div className="list nomination-list" ref={this.toggleRef}>
                                     <h3>Nomination List ({this.state.nominations.length})</h3>
                                 
@@ -119,9 +119,16 @@ class List extends Component {
                             </div>
                         ) : (null)
                     }
-
-
                 </div>
+                <button className="toggle" onClick={this.toggleButton}>
+                    {
+                        this.state.toggleList === false ? (
+                            'Show Nominations'
+                        ) : (
+                            'Hide Nominations'
+                        )
+                    }
+                </button>
             </div>
         )
     }

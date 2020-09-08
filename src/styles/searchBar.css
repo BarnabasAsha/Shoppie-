@@ -2,6 +2,12 @@
     margin: 9em 0 2em 0;
 }
 
+.wrapper h2 {
+    font-size: 1.3rem;
+    margin: 1em;
+    text-align: center;
+}
+
 .description {
     margin: 2em 0;
     text-align: center;

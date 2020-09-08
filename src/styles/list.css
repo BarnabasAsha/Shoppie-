@@ -29,7 +29,7 @@
     margin-bottom: 1em;
 }
 
-.list .toggle {
+.toggle {
     padding: 1em;
     border-radius: 15px;
     border: none;
@@ -38,10 +38,17 @@
     cursor: pointer;
     color: #eee;
     position: fixed;
-    bottom: 5%;
-    right: 10%;
+    bottom: 10%;
+    right: 7%;
     display: none;
     z-index: 100;
+}
+
+.error-message {
+    margin:  1em 0;
+    padding:  1em;
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -70,9 +77,10 @@
         left: 5%;
         right: 0;
         z-index: 10;
+        display: none;
     }
 
-    .list .toggle {
+    .toggle {
         display: block;
     }
 }
