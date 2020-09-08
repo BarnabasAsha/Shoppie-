@@ -4,7 +4,7 @@ Users can nominate their favorites movies
 A maximum of 5 movies can be nominated
 Users nominations is saved to browsers storage
 
-Hosted Link: shoppie-awards.netlify.app
+Hosted Link: shoppie-award.netlify.app
 
 ## Available Scripts
 

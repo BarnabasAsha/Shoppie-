@@ -34,7 +34,6 @@ class Search extends Component {
                     this.setState({ notFound: true })
                 }
             }).catch(error => {
-                console.log(error);
                 if (error.status === '404') {
                     this.setState({ notFound: true })
                 }
