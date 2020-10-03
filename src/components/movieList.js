@@ -123,7 +123,7 @@ class List extends Component {
                     }
                 </div>
                 {
-                    this.state.nominations > 0 ? (
+                    this.state.nominations.length > 0 ? (
                         <button className="toggle" onClick={this.toggleButton}>
                     {
                         this.state.toggleList === false ? (
