@@ -28,6 +28,9 @@ class List extends Component {
 
     componentDidUpdate() {
         localStorage.setItem('storeNominations', JSON.stringify(this.state.nominations))
+        if(this.state.nominations.length === 0) {
+            this.setState({toggleList: false})
+        }
     }
 
     updateNomations(movieID) {
