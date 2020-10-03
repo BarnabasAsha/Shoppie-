@@ -133,7 +133,7 @@ class List extends Component {
                         )
                     }
                 </button>
-                    ) : this.setState({toggleList: !this.state.toggleList})
+                    ) : null
                 }
             </div>
         )
