@@ -122,7 +122,9 @@ class List extends Component {
                         ) : (null)
                     }
                 </div>
-                <button className="toggle" onClick={this.toggleButton}>
+                {
+                    this.state.nominations > 0 ? (
+                        <button className="toggle" onClick={this.toggleButton}>
                     {
                         this.state.toggleList === false ? (
                             'Show Nominations'
@@ -131,6 +133,8 @@ class List extends Component {
                         )
                     }
                 </button>
+                    ) : null
+                }
             </div>
         )
     }
