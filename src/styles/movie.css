@@ -2,16 +2,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: #393e46;
+    background: ivory;
     margin-bottom: 1em;
-    width: 300px;
+    width: 270px;
     height: 130px;
     border-radius: 5px;
-    box-shadow: 0px 2px 2px 0px rgba(238, 238, 238, 0.582);
+    box-shadow: 0px 2px 2px 0px rgb(37, 153, 37);
 }
 
 .movie .poster {
-    max-width: 30%;
+    max-width: 40%;
     height: 130px;
     overflow: hidden;
     background: #f4f4f4;
@@ -28,7 +28,8 @@
 
 .movie .description h3 {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 600;
+    color: #2e2828;
 }
 
 .movie .description button {
@@ -36,10 +37,10 @@
     height: 30px;
     border: none;
     border-radius: 5px;
-    color: #eee;
-    background: #00adb5;
+    color: ivory;
+    background: #2e2828;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .movie .description button:active {
@@ -50,9 +51,43 @@
     background: #323232;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 650px) {
     .movie {
-        width: 270px;
+        width: 150px;
+        height: 200px;
+        position: relative;
+        margin-right: 2em;
+        background-color: white;
+    }
+
+    .movie .poster {
+        min-width: 150px;
+        height: 200px;
+    }
+
+    .movie .description {
+        background-color: rgba(255, 255, 240, 0.562);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: inherit;
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .movie .description h3 {
+        color: #2e2828;
+        font-size: 1.1rem;
+        font-weight: 800;
+    }
+
+    .movie .description button {
+        align-self: flex-start;
     }
 }
 

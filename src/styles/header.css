@@ -1,23 +1,76 @@
 .header {
     width: 100%;
-    padding:  1.5em 4em;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    background: #222831;
-    box-shadow: 0px 1px 4px rgba(34, 40, 49, 0.192);
+    height: 65vh;
+    padding: 10px 10%;
+    background-image: url(../assets/hero-image-mobile.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.header h2 {
-    font-size: 1.7rem;
-    color: #fff;
-    font-weight: 300;
-    font-style: italic;
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
-@media only screen and (max-width: 600px) {
+.banner img {
+    width: 50px;
+}
+
+.hero_text {
+    margin-top: 2em;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-weight: 500;
+    color: ivory;
+}
+
+@media only screen and (min-width: 650px) {
     .header {
-        padding: 1em;
+        background: url(../assets/hero-image-ipad.jpg);
+        height: 55vh;
+    }
+
+    .hero_text {
+        margin: 3em auto auto;
+        font-size: 2.2rem;
+        line-height: 3rem;
+        width: 550px;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 1000) {
+    .header {
+        height: 45vh;
+    }
+
+    .hero_text {
+        margin: 3.5em auto auto;
+        font-size: 2.3rem;
+        line-height: 3rem;
+        width: 600px;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .header {
+        background: url(../assets/hero-image-desktop.jpg);
+        height: 100vh;
+    }
+
+    .hero_text {
+        margin: 3em auto auto;
+        font-size: 3rem;
+        width: 700px;
+        font-weight: 600;
     }
 }
