@@ -7,7 +7,7 @@ function Movie (props) {
     const [ nominateStatus, setNominateStatus ] = useState(false)
     
     function nominateMovie () {
-        setNominateStatus(false)
+        setNominateStatus(!nominateStatus)
     }
 
     function showDescription (e) {
