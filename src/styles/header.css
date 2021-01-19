@@ -9,16 +9,10 @@
 }
 
 .banner {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     font-weight: 700;
-    font-size: 0.9rem;
-}
-
-.banner img {
-    width: 50px;
+    font-size: 1.5rem;
+    color: ivory;
+    font-style: italic;
 }
 
 .hero_text {

@@ -1,14 +1,13 @@
 import React from 'react'
+import { Link } from '@reach/router'
 import '../styles/header.css'
-import Logo from '../assets/logo.jpg'
 
 function Header () {
     return (
         <header className="header">
-            <section className="banner" role="banner">
-                <img src={Logo} alt="Shoppies" />
+            <Link to="/" className="banner" role="banner">
                 Shoppies
-            </section>
+            </Link>
             <section className="hero_text">
                 Nominate your favorite movies for the Shoppies Movies Award.
                 <br />One of your nominated movies stands the chance of winning the Award!

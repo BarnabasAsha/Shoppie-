@@ -1,49 +1,58 @@
-import React, { useState } from 'react';
-import Movie from './movie';
-import '../styles/list.css'
-import errorImg from '../assets/error404.svg'
+import React, { useState } from "react";
+import Nominations from "./nominations";
+import Movie from "./movie";
+import "../styles/list.css";
 
-function List (props) {
+function List(props) {
+  const movieData = props.movieData;
+  const dataLength = props.movieData.length;
+  const query = props.query;
+  const [nominations, setNominations] = useState([]);
+  const [showNominations, toggleShowNominations] = useState(false);
 
-    const movieData = props.movieData
-    const dataLength = props.movieData.length
-    const query = props.query
-    const [nominations, setNominations] = useState([])
-
-    function handleNomination (movieID) {
-        if(nominations.length < 5) {
-            const nominated = movieData.filter(movie => movie.imdbID === movieID)
-            setNominations(nominations.concat(nominated))
-        }
+  function handleNomination(movieID) {
+    if (nominations.length < 5) {
+      const nominated = movieData.filter((movie) => movie.imdbID === movieID);
+      setNominations(nominations.concat(nominated));
+    } else {
+      alert("Sorry! You cannot exceed the nomination maximum of 5");
     }
+  }
 
-    return (
-        <div className="movie_container">
-           {
-                dataLength ? (
-                   <div>
-                        <h2> {` ${dataLength} results for "${query}" `} </h2>
-    
-        <div className="movie_list">
-        {
-            movieData.map( (movie) => {
-                return <Movie key={movie.imdbID} id={movie.imdbID} title={movie.Title} poster={movie.Poster} year={movie.Year} onClick={ (movie) => {
-                    handleNomination(movie)
-                }} 
+  return (
+    <div className="movie_container">
+      {showNominations ? (
+        <Nominations movieData={nominations} />
+      ) : !dataLength ? (
+        <h2>No movies found, Kindly search for a movie</h2>
+      ) : (
+        <div>
+          <h2> {` ${dataLength} results for "${query}" `} </h2>
+
+          <div className="movie_list">
+            {movieData.map((movie) => {
+              return (
+                <Movie
+                  key={movie.imdbID}
+                  id={movie.imdbID}
+                  title={movie.Title}
+                  poster={movie.Poster}
+                  year={movie.Year}
+                  nominate={true}
+                  onClick={() => {
+                    handleNomination(movie.imdbID);
+                  }}
                 />
-            })
-        }
+              );
+            })}
+          </div>
         </div>
-                   </div>
-                ) : (
-                    <div className="errorMsg">
-                        <img src={errorImg} alt='Problem connecting to server' />
-                        <h3>Error connecting to server</h3>
-                    </div>
-                )
-           }
-        </div>
-    )
+      )}
+      <button onClick={() => toggleShowNominations(!showNominations)}>
+        {showNominations ? "Back to Movie Nominations" : "Show Nominations"}
+      </button>
+    </div>
+  );
 }
 
 // class List extends Component {
@@ -110,7 +119,7 @@ function List (props) {
 //                 this.setState({toggleList: !this.state.toggleList})
 //             } else {
 //                 this.toggleRef.current.style.display = 'none'
-//                 this.setState({toggleList: !this.state.toggleList})  
+//                 this.setState({toggleList: !this.state.toggleList})
 //             }
 //         }
 //     }
@@ -133,10 +142,10 @@ function List (props) {
 //                                 {
 //                                     this.props.array.map((movie) => {
 //                                         return <Movie key={movie.imdbID} id={movie.imdbID} title={movie.Title} poster={movie.Poster} year={movie.Year} disable={this.handleDisability(movie.imdbID)}
-                                            // onClick={(e) => {
-                                            //     this.updateNomations(e)
-                                            // }
-                                            // }
+// onClick={(e) => {
+//     this.updateNomations(e)
+// }
+// }
 //                                             buttonType="nominate" />;
 //                                     }
 //                                     )
@@ -155,7 +164,7 @@ function List (props) {
 //                             <div className="list">
 //                                 <div className="list nomination-list" ref={this.toggleRef}>
 //                                     <h3>Nomination List ({this.state.nominations.length})</h3>
-                                
+
 //                                 {
 //                                     this.state.nominations.map((movie) =>
 //                                         <Movie key={movie.imdbID} id={movie.imdbID} title={movie.Title} poster={movie.Poster} year={movie.Year} buttonType="remove"
@@ -187,4 +196,4 @@ function List (props) {
 
 // }
 
-export default List
+export default List;

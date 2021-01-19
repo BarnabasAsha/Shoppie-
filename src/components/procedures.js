@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@reach/router'
 import '../styles/procedures.css'
 import checkmark from '../assets/checkmark.png'
 
@@ -26,7 +27,7 @@ function Procedure () {
 
             </ul>
             <button className="button">
-                <a href="#nomination">Proceed to Nominations</a>
+                <Link to="/nominate">Proceed to Nominations</Link>
             </button>
         </section>
     )
