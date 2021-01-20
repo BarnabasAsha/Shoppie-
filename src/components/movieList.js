@@ -76,7 +76,10 @@ function List(props) {
           </div>
         </div>
       )}
-      <button onClick={() => toggleShowNominations(!showNominations)}>
+      <button
+        className="list_btn"
+        onClick={() => toggleShowNominations(!showNominations)}
+      >
         {showNominations ? "Back to Movie Nominations" : "Show Nominations"}
       </button>
     </div>

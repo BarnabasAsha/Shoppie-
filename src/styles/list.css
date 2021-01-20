@@ -1,16 +1,28 @@
 .movie_container {
-    padding: 10%;
+  width: 100%;
+  padding: 10%;
 }
 
 .movie_container h2 {
-    font-size: 1.5rem;
-    margin-bottom: 2em;
+  font-size: 1.5rem;
+  margin-bottom: 2em;
 }
 
 .movie_list {
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.list_btn {
+  display: block;
+  margin: 2.5em auto;
+  width: 160px;
+  height: 40px;
+  color: ivory;
+  background-color: rgb(37, 153, 37);
+  border: none;
+  cursor: pointer;
 }
