@@ -15,7 +15,7 @@ function Movie(props) {
           onClick={() => {
             props.onClick(props.imdbID);
           }}
-          disabled={props.disablility}
+          disabled={props.disability}
         >
           {props.nominate ? "Nominate" : "Denominate"}
         </button>

@@ -66,7 +66,7 @@ function List(props) {
                   poster={movie.Poster}
                   year={movie.Year}
                   nominate={true}
-                  disability={handleDisability}
+                  disability={handleDisability(movie.imdbID)}
                   onClick={() => {
                     handleNomination(movie.imdbID);
                   }}
