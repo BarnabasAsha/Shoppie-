@@ -36,6 +36,13 @@ function List(props) {
     setNominations(denominated);
   }
 
+  function handleDisability(movieID) {
+    const check = (movie) => movie.imdbID === movieID;
+    if (nominations.some(check)) {
+      return true;
+    }
+  }
+
   return (
     <div className="movie_container">
       {showNominations ? (
@@ -59,6 +66,7 @@ function List(props) {
                   poster={movie.Poster}
                   year={movie.Year}
                   nominate={true}
+                  disability={handleDisability}
                   onClick={() => {
                     handleNomination(movie.imdbID);
                   }}

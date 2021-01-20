@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/movie.css";
 
 function Movie(props) {
-  const [nominateStatus, setNominateStatus] = useState(false);
-
   return (
     <div className="movie">
       <div className="poster">
@@ -15,10 +13,9 @@ function Movie(props) {
         </h3>
         <button
           onClick={() => {
-            setNominateStatus(true);
             props.onClick(props.imdbID);
           }}
-          disabled={nominateStatus}
+          disabled={props.disablility}
         >
           {props.nominate ? "Nominate" : "Denominate"}
         </button>
