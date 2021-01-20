@@ -4,10 +4,6 @@ import "../styles/movie.css";
 function Movie(props) {
   const [nominateStatus, setNominateStatus] = useState(false);
 
-  function nominateMovie() {
-    setNominateStatus(!nominateStatus);
-  }
-
   return (
     <div className="movie">
       <div className="poster">
@@ -19,7 +15,7 @@ function Movie(props) {
         </h3>
         <button
           onClick={() => {
-            nominateMovie();
+            setNominateStatus(true);
             props.onClick(props.imdbID);
           }}
           disabled={nominateStatus}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nominations from "./nominations";
 import Movie from "./movie";
 import "../styles/list.css";
@@ -10,6 +10,18 @@ function List(props) {
   const [nominations, setNominations] = useState([]);
   const [showNominations, toggleShowNominations] = useState(false);
 
+  useEffect(() => {
+    if (localStorage.getItem("storeNominations") === null) {
+      setNominations([]);
+    } else {
+      setNominations(JSON.parse(localStorage.getItem("storeNominations")));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("storeNominations", JSON.stringify(nominations));
+  }, [nominations]);
+
   function handleNomination(movieID) {
     if (nominations.length < 5) {
       const nominated = movieData.filter((movie) => movie.imdbID === movieID);
@@ -20,13 +32,8 @@ function List(props) {
   }
 
   function denominate(movieID) {
-    for (let i = 0; i < nominations.length; i++) {
-      if (nominations[i].imdbID === movieID) {
-        const newNominations = nominations.splice(i, 1);
-        setNominations(newNominations);
-        console.log(newNominations);
-      }
-    }
+    const denominated = nominations.filter((movie) => movie.imdbID !== movieID);
+    setNominations(denominated);
   }
 
   return (
