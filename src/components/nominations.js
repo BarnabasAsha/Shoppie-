@@ -2,7 +2,7 @@ import React from "react";
 import Movie from "./movie";
 import "../styles/list.css";
 
-function Nominations({ movieData }) {
+function Nominations({ movieData, denominate }) {
   return (
     <div>
       <h2>Hey, You have made {movieData.length} nominations</h2>
@@ -18,7 +18,9 @@ function Nominations({ movieData }) {
                 title={movie.Title}
                 poster={movie.Poster}
                 year={movie.Year}
-                onClick={() => {}}
+                onClick={() => {
+                  denominate(movie.imdbID);
+                }}
               />
             );
           })

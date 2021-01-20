@@ -19,10 +19,23 @@ function List(props) {
     }
   }
 
+  function denominate(movieID) {
+    for (let i = 0; i < nominations.length; i++) {
+      if (nominations[i].imdbID === movieID) {
+        const newNominations = nominations.splice(i, 1);
+        setNominations(newNominations);
+        console.log(newNominations);
+      }
+    }
+  }
+
   return (
     <div className="movie_container">
       {showNominations ? (
-        <Nominations movieData={nominations} />
+        <Nominations
+          movieData={nominations}
+          denominate={(e) => denominate(e)}
+        />
       ) : !dataLength ? (
         <h2>No movies found, Kindly search for a movie</h2>
       ) : (
