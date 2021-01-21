@@ -1,70 +1,129 @@
 .header {
-    width: 100%;
-    height: 65vh;
-    padding: 10px 10%;
-    background-image: url(../assets/hero-image-mobile.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  width: 100%;
+  padding: 20px 2%;
+  background-color: rgb(8, 8, 8);
 }
 
 .banner {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: ivory;
-    font-style: italic;
+  font-weight: 700;
+  font-size: 2rem;
+  color: ivory;
+  font-style: italic;
+}
+
+.hero {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.hero_grid {
+  display: grid;
+  width: 280px;
+  height: 400px;
+  gap: 20px;
+  grid-template-rows: 1fr 1fr 3fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 2em;
+}
+
+.hero_grid .box {
+  border: 3px solid #fff;
+}
+
+.hero_grid .box-1 {
+  grid-row: 2/4;
+  grid-column: 1/3;
+  border-top-right-radius: 40px;
+  background-image: url(../assets/box-one.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_grid .box-2 {
+  grid-row: 4/6;
+  grid-column: 1/3;
+  border-bottom-left-radius: 40px;
+  background-image: url(../assets/box-two.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_grid .box-3 {
+  grid-row: 1/3;
+  grid-column: 3/5;
+  border-top-left-radius: 40px;
+  background-image: url(../assets/box-three.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.hero_grid .box-4 {
+  grid-row: 3/5;
+  grid-column: 3/5;
+  border-bottom-right-radius: 40px;
+  background-image: url(../assets/box-four.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .hero_text {
-    margin-top: 2em;
-    font-size: 1.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    font-weight: 500;
-    color: ivory;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+  text-align: justify;
+  font-weight: 500;
+  color: ivory;
 }
 
 @media only screen and (min-width: 650px) {
-    .header {
-        background: url(../assets/hero-image-ipad.jpg);
-        height: 55vh;
-    }
+  .hero {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-    .hero_text {
-        margin: 3em auto auto;
-        font-size: 2.2rem;
-        line-height: 3rem;
-        width: 550px;
-        font-weight: 600;
-    }
+  .hero_text {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    max-width: 350px;
+    font-weight: 600;
+  }
 }
 
 @media only screen and (min-width: 1000) {
-    .header {
-        height: 45vh;
-    }
-
-    .hero_text {
-        margin: 3.5em auto auto;
-        font-size: 2.3rem;
-        line-height: 3rem;
-        width: 600px;
-        font-weight: 600;
-    }
+  .hero_text {
+    font-size: 2.3rem;
+    line-height: 3rem;
+    max-width: 600px;
+    font-weight: 600;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-    .header {
-        background: url(../assets/hero-image-desktop.jpg);
-        height: 100vh;
-    }
+  .header {
+    max-height: 100vh;
+  }
 
-    .hero_text {
-        margin: 3em auto auto;
-        font-size: 3rem;
-        width: 700px;
-        font-weight: 600;
-    }
+  .hero {
+    max-width: 1200px;
+    margin: 3em auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .hero_grid {
+    width: 400px;
+    height: 550px;
+  }
+
+  .hero_text {
+    line-height: 4rem;
+    font-size: 3rem;
+    max-width: 610px;
+    font-weight: 600;
+  }
 }
