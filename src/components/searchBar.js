@@ -12,7 +12,7 @@ function Search() {
     e.preventDefault();
     setLoading(true);
     fetch(
-      `http://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=32817f98&s=${query}`
+      `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=32817f98&s=${query}`
     )
       .then((res) => res.json())
       .then((data) => {
