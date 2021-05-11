@@ -4,6 +4,12 @@
   background-color: rgb(8, 8, 8);
 }
 
+.banner_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .banner {
   font-weight: 500;
   font-size: 1rem;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "@reach/router";
 import List from "./movieList";
 import "../styles/searchBar.css";
+import Subheader from "./subheader";
 
 function Search() {
   const [query, setQuery] = useState("");
@@ -12,7 +12,7 @@ function Search() {
     e.preventDefault();
     setLoading(true);
     fetch(
-      `http://www.omdbapi.com/?apikey=32817f98&s=${query}`
+      `http://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?apikey=32817f98&s=${query}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -29,9 +29,7 @@ function Search() {
 
   return (
     <div className="wrapper">
-       <Link to="/" className="banner" role="banner">
-       <span>📽</span> SHOPPIES
-      </Link>
+      <Subheader />
       <form className="search_form" onSubmit={fetchData}>
         <input
           type="text"

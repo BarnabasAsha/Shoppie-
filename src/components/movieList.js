@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Nominations from "./nominations";
 import Movie from "./movie";
+import NominationContext from '../context'
 import "../styles/list.css";
 
 function List(props) {
@@ -9,6 +10,7 @@ function List(props) {
   const query = props.query;
   const [nominations, setNominations] = useState([]);
   const [showNominations, toggleShowNominations] = useState(false);
+  const [count, setCount] = useContext(NominationContext);
 
   useEffect(() => {
     if (localStorage.getItem("storeNominations") === null) {
@@ -23,9 +25,10 @@ function List(props) {
   }, [nominations]);
 
   function handleNomination(movieID) {
-    if (nominations.length < 5) {
+    if (nominations.length < 5 || count < 5) {
       const nominated = movieData.filter((movie) => movie.imdbID === movieID);
       setNominations(nominations.concat(nominated));
+      setCount(nominations.length)
     } else {
       alert("Sorry! You cannot exceed the nomination maximum of 5");
     }
@@ -34,6 +37,7 @@ function List(props) {
   function denominate(movieID) {
     const denominated = nominations.filter((movie) => movie.imdbID !== movieID);
     setNominations(denominated);
+    setCount(nominations.length)
   }
 
   function handleDisability(movieID) {
