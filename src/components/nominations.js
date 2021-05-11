@@ -2,13 +2,14 @@ import React from "react";
 import Movie from "./movie";
 import "../styles/list.css";
 
-function Nominations({ movieData, denominate }) {
+function Nominations({ movieData, denominate, toggleNominations, showNominations }) {
   return (
-    <div>
-      <h2>Hey, You have made {movieData.length} nominations</h2>
+    <div className="nominations_wrapper">
+      <button className="list_btn" onClick={() => toggleNominations(!showNominations)}>Go back to List</button>
+      <h4>Hey, You have made {movieData.length} nominations</h4>
       <div className="movie_list">
         {!movieData.length ? (
-          <h3>You've not made any nominations so far</h3>
+          <p>Go back and nominate a movie</p>
         ) : (
           movieData.map((movie) => {
             return (

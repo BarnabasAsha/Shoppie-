@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="header">
       <Link to="/" className="banner" role="banner">
-        Shoppies
+       <span>📽</span> SHOPPIES
       </Link>
 
       <section className="hero">

@@ -45,37 +45,37 @@ function List(props) {
 
   return (
     <div className="movie_container">
+      <div>
+        <h4> {movieData.length ? ` ${dataLength} results for "${query}" ` : null} </h4>
+
+        <div className="movie_list">
+          {movieData.map((movie) => {
+            return (
+              <Movie
+                key={movie.imdbID}
+                id={movie.imdbID}
+                title={movie.Title}
+                poster={movie.Poster}
+                year={movie.Year}
+                nominate={true}
+                disability={handleDisability(movie.imdbID)}
+                onClick={() => {
+                  handleNomination(movie.imdbID);
+                }}
+              />
+            );
+          })}
+        </div>
+      </div>
+      
       {showNominations ? (
         <Nominations
           movieData={nominations}
           denominate={(e) => denominate(e)}
+          toggleNominations={toggleShowNominations}
+          showNominations={showNominations}
         />
-      ) : !dataLength ? (
-        <h2>No movies found, Kindly search for a movie</h2>
-      ) : (
-        <div>
-          <h2> {` ${dataLength} results for "${query}" `} </h2>
-
-          <div className="movie_list">
-            {movieData.map((movie) => {
-              return (
-                <Movie
-                  key={movie.imdbID}
-                  id={movie.imdbID}
-                  title={movie.Title}
-                  poster={movie.Poster}
-                  year={movie.Year}
-                  nominate={true}
-                  disability={handleDisability(movie.imdbID)}
-                  onClick={() => {
-                    handleNomination(movie.imdbID);
-                  }}
-                />
-              );
-            })}
-          </div>
-        </div>
-      )}
+      ) : null}
       <button
         className="list_btn"
         onClick={() => toggleShowNominations(!showNominations)}
