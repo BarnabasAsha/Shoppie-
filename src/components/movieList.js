@@ -17,6 +17,7 @@ function List(props) {
       setNominations([]);
     } else {
       setNominations(JSON.parse(localStorage.getItem("storeNominations")));
+      setCount(nominations.length)
     }
   }, []);
 
@@ -24,19 +25,19 @@ function List(props) {
     localStorage.setItem("storeNominations", JSON.stringify(nominations));
   }, [nominations]);
 
-  function handleNomination(movieID) {
+  async function handleNomination(movieID) {
     if (nominations.length < 5 || count < 5) {
       const nominated = movieData.filter((movie) => movie.imdbID === movieID);
-      setNominations(nominations.concat(nominated));
+      await setNominations(nominations.concat(nominated));
       setCount(nominations.length)
     } else {
       alert("Sorry! You cannot exceed the nomination maximum of 5");
     }
   }
 
-  function denominate(movieID) {
+  async function denominate(movieID) {
     const denominated = nominations.filter((movie) => movie.imdbID !== movieID);
-    setNominations(denominated);
+    await setNominations(denominated);
     setCount(nominations.length)
   }
 
